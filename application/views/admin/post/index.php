@@ -17,74 +17,16 @@
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 190px;">Gösterim</th></tr>
                         </thead>
                         <tbody>
+                        <?php foreach($posts as $row){ ?>
                         <tr role="row" class="odd">
-                            <td class="sorting_1">Gecko</td>
-                            <td>Firefox 1.0</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.7</td>
-                            <td>A</td>
-                        </tr><tr role="row" class="odd">
-                            <td class="sorting_1">Gecko</td>
-                            <td>Firefox 1.0</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.7</td>
-                            <td>A</td>
+                            <td class="sorting_1"><?=$row->title?></td>
+                            <td><?=$row->content?></td>
+                            <td><?=$row->title?></td>
+                            <td><?=$row->user_id?></td>
+                            <td><?=$row->read?></td>
                         </tr>
-                        <tr role="row" class="even">
-                            <td class="sorting_1">Presto</td>
-                            <td>Opera 7.0</td>
-                            <td>Win 95+ / OSX.1+</td>
-                            <td>-</td>
-                            <td>A</td>
-                        </tr><tr role="row" class="odd">
-                            <td class="sorting_1">Presto</td>
-                            <td>Opera 7.5</td>
-                            <td>Win 95+ / OSX.2+</td>
-                            <td>-</td>
-                            <td>A</td>
-                        </tr><tr role="row" class="even">
-                            <td class="sorting_1">Presto</td>
-                            <td>Opera 8.0</td>
-                            <td>Win 95+ / OSX.2+</td>
-                            <td>-</td>
-                            <td>A</td>
-                        </tr><tr role="row" class="odd">
-                            <td class="sorting_1">Presto</td>
-                            <td>Opera 8.5</td>
-                            <td>Win 95+ / OSX.2+</td>
-                            <td>-</td>
-                            <td>A</td>
-                        </tr><tr role="row" class="even">
-                            <td class="sorting_1">Presto</td>
-                            <td>Opera 9.0</td>
-                            <td>Win 95+ / OSX.3+</td>
-                            <td>-</td>
-                            <td>A</td>
-                        </tr><tr role="row" class="odd">
-                            <td class="sorting_1">Presto</td>
-                            <td>Opera 9.2</td>
-                            <td>Win 88+ / OSX.3+</td>
-                            <td>-</td>
-                            <td>A</td>
-                        </tr><tr role="row" class="even">
-                            <td class="sorting_1">Presto</td>
-                            <td>Opera 9.5</td>
-                            <td>Win 88+ / OSX.3+</td>
-                            <td>-</td>
-                            <td>A</td>
-                        </tr><tr role="row" class="odd">
-                            <td class="sorting_1">Presto</td>
-                            <td>Opera for Wii</td>
-                            <td>Wii</td>
-                            <td>-</td>
-                            <td>A</td>
-                        </tr><tr role="row" class="even">
-                            <td class="sorting_1">Presasasato</td>
-                            <td>Nokia N800</td>
-                            <td>N800</td>
-                            <td>-</td>
-                            <td>A</td>
-                        </tr></tbody>
+                        <?php } ?>
+                        </tbody>
                         <tfoot>
                         <tr>
                             <th rowspan="1" colspan="1">Rendering engine</th>

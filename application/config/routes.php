@@ -55,3 +55,4 @@ $route['translate_uri_dashes']      = FALSE;
 
 $route['admin']                     = 'admin/home_Controller';
 $route['admin/makaleler']           = 'admin/posts_Controller/index';
+$route['admin/seed']                = 'admin/posts_Controller/seed';

@@ -137,7 +137,7 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
 
-                <li><a href="<?=base_url()?>"><i class="fa fa-edit"></i> <span>Dashboard</span></a></li>
+                <li><a href="<?=base_url()?>admin/dashboard"><i class="fa fa-edit"></i> <span>Dashboard</span></a></li>
                 <li class="treeview menu-open">
                     <a href="#">
                         <i class="fa fa-edit"></i> <span>Makale</span>
