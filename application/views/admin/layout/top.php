@@ -137,7 +137,7 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
 
-                <li><a href="<?=base_url()?>admin/dashboard"><i class="fa fa-edit"></i> <span>Dashboard</span></a></li>
+                <li><a href="<?=base_url()?>admin/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
                 <li class="treeview menu-open">
                     <a href="#">
                         <i class="fa fa-edit"></i> <span>Makale</span>
@@ -146,11 +146,22 @@
                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?=base_url()?>admin/makaleler"><i class="fa fa-circle-o"></i>Göster</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Ekle</a></li>
+                        <li><a href="<?=base_url()?>admin/makaleler"><i class="fa fa-eye"></i>Göster</a></li>
+                        <li><a href="#"><i class="fa fa-plus"></i>Ekle</a></li>
                     </ul>
                 </li>
-
+                <li class="treeview menu-open">
+                    <a href="#">
+                        <i class="fa fa-list-alt"></i> <span>Kategoriler</span>
+                        <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="<?=base_url()?>admin/kategoriler"><i class="fa fa-eye"></i>Göster</a></li>
+                        <li><a href="<?=base_url()?>admin/categories"><i class="fa fa-plus"></i>Ekle</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->

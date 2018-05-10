@@ -15,22 +15,32 @@ class Post_Model extends CI_Model
 
     public function all()
     {
-        $query = $this->db->get('article');
+        $query = $this->db->get('articles');
         return $query->result();
     }
 
+    public function get_join_categories_user()
+    {
+        $this->db->select('articles.*, categories.title as category, users.username as yazar');
+        $this->db->from('articles');
+        $this->db->join('categories','articles.categories_id = categories.id  ');
+        $this->db->join('users','articles.user_id = users.id  ');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+
+
+
     function insert($options = array()) {
-        $this->db->insert('article', $options);
+        $this->db->insert('articles', $options);
     }
     function truncate()
     {
-        $this->db->truncate('article');
+        $this->db->truncate('articles');
     }
-    function get()
-    {
-        $query = $this->db->get('article');
-        return $query->result();
-    }
+
 
 }
 

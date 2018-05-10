@@ -53,6 +53,14 @@ $route['default_controller']        = 'welcome';
 $route['404_override']              = '';
 $route['translate_uri_dashes']      = FALSE;
 
-$route['admin']                     = 'admin/home_Controller';
+$route['admin/dashboard']           = 'admin/home_Controller';
+
 $route['admin/makaleler']           = 'admin/posts_Controller/index';
-$route['admin/seed']                = 'admin/posts_Controller/seed';
+$route['admin/makalelerekle']       = 'admin/posts_Controller/add';
+
+$route['admin/kategoriler']         = 'admin/categories_Controller/index';
+
+
+/* faker linki*/
+$route['admin/makaleler/seed']      = 'admin/posts_Controller/seed';
+$route['admin/kategoriler/seed']    = 'admin/categories_Controller/seed';
