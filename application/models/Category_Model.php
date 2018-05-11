@@ -20,13 +20,17 @@ class Category_Model extends CI_Model
         return $query->result();
     }
 
-    //Seed
-    function insert($options = array()) {
-        $this->db->insert('categories', $options);
-    }
-    function truncate()
+    public function insert()
     {
-        $this->db->truncate('categories');
+        echo "asd";
+
     }
+
+    function get_insert($options = array()) {
+
+        $this->db->insert('categories', $options);
+
+    }
+
 
 }

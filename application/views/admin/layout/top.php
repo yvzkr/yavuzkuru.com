@@ -159,7 +159,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="<?=base_url()?>admin/kategoriler"><i class="fa fa-eye"></i>Göster</a></li>
-                        <li><a href="<?=base_url()?>admin/categories"><i class="fa fa-plus"></i>Ekle</a></li>
+                        <li><a href="<?=base_url()?>admin/kategoriekle"><i class="fa fa-plus"></i>Ekle</a></li>
                     </ul>
                 </li>
             </ul>

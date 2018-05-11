@@ -29,6 +29,8 @@ class Posts_Controller extends CI_Controller {
 
     public function add(){
 
+
+
     }
 
     function seed()

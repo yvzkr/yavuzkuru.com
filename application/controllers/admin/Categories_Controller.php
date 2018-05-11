@@ -23,16 +23,31 @@ class Categories_Controller extends CI_Controller
         $this->load->view('admin/layout/bottom');
     }
 
-//faker start
+    public function add()
+    {
+
+        $this->load->view('admin/layout/top');
+        $this->load->view('admin/category/add');
+        $this->load->view('admin/layout/bottom');
+    }
+
+    public function create(){
+        $asd=$this->Category_Model>all();
+        if(1)
+        {
+            echo "Çalışıyor";
+        }else{
+            echo "Sıkıntı var";
+        }
+    }
+
+    //faker start
     function seed()
     {
-        // purge existing data
-        //$this->_truncate_db();
 
         // seed users
         $this->_seed_users(25);
 
-        // call more seeds here...
     }
 
     function _seed_users($limit)
@@ -46,7 +61,7 @@ class Categories_Controller extends CI_Controller
                 'description' => $this->faker->text($maxNbChars = 20)
 
             );
-            $this->Category_Model->insert($data);
+            $this->Category_Model->get_insert($data);
         }
         $this->session->set_flashdata('message', 'Database Seeds Successfully 25 Records Added In Database');
         redirect('admin/kategoriler', 'location');
@@ -56,5 +71,5 @@ class Categories_Controller extends CI_Controller
     {
         $this->Category_Model->truncate();
     }
-//faker finish
+    //faker finish
 }
