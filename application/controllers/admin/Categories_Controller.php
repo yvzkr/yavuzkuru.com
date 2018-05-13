@@ -10,6 +10,7 @@ class Categories_Controller extends CI_Controller
         // initiate faker
         $this->faker = Faker\Factory::create();
         $this->load->library('session');
+        $this->load->helper(array('form', 'url'));
     }
 
     public function index()
@@ -18,6 +19,7 @@ class Categories_Controller extends CI_Controller
             "posts"     => $this->Category_Model->all()
         );
 
+
         $this->load->view('admin/layout/top');
         $this->load->view('admin/category/index',$data);
         $this->load->view('admin/layout/bottom');
@@ -25,21 +27,22 @@ class Categories_Controller extends CI_Controller
 
     public function add()
     {
-
         $this->load->view('admin/layout/top');
         $this->load->view('admin/category/add');
         $this->load->view('admin/layout/bottom');
     }
 
     public function create(){
-        $asd=$this->Category_Model>all();
-        if(1)
+
+        if($this->Category_Model->insert())
         {
-            echo "Çalışıyor";
+            redirect('admin/kategoriler');
         }else{
-            echo "Sıkıntı var";
+            redirect('admin/kategoriekle');
         }
     }
+
+
 
     //faker start
     function seed()

@@ -11,7 +11,6 @@ class Category_Model extends CI_Model
     public function __construct()
     {
         $this->load->database();
-
     }
 
     public function all()
@@ -22,14 +21,17 @@ class Category_Model extends CI_Model
 
     public function insert()
     {
-        echo "asd";
-
+        $data = array(
+            'title'         => $this->input->post('title'),
+            'description'   => $this->input->post('description'),
+            'image'         => $this->input->post('userfile')
+        );
+        $this->db->insert('categories', $data);
+        return true;
     }
 
     function get_insert($options = array()) {
-
         $this->db->insert('categories', $options);
-
     }
 
 

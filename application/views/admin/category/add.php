@@ -12,12 +12,12 @@
             </div>
             <div class="form-group">
                 <label>Açıklama</label>
-                <input type="text" name="desciription" class="form-control" placeholder="Bir Açıklama giriniz">
+                <input type="text" name="description" class="form-control" placeholder="Bir Açıklama giriniz">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
+                <input type="file" name="userfile" size="20" id="exampleInputFile"/>
 
                 <p class="help-block">Lütfen Kategori İçin Bir Fotoğraf Yükleyiniz.</p>
             </div>
