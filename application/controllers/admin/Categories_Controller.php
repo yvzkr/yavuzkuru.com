@@ -10,7 +10,7 @@ class Categories_Controller extends CI_Controller
         // initiate faker
         $this->faker = Faker\Factory::create();
         $this->load->library('session');
-        $this->load->helper(array('form', 'url'));
+        $this->load->helper(array('form', 'url','date'));
     }
 
     public function index()
@@ -33,14 +33,55 @@ class Categories_Controller extends CI_Controller
     }
 
     public function create(){
+        echo NOW()."<br>";
+        echo $this->input->post("title");
+        $this->upload_image();
 
-        if($this->Category_Model->insert())
+        echo NOW();
+       /* if($this->Category_Model->insert())
         {
             redirect('admin/kategoriler');
         }else{
             redirect('admin/kategoriekle');
-        }
+        }*/
     }
+
+    public function upload_image(){
+        // Check form submit or not
+
+            $data = array();
+            if(!empty($_FILES['file']['name'])){
+                // Set preference
+                $config['upload_path'] = 'uploads/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['max_size'] = '100'; // max_size in kb
+                $config['file_name'] =NOW();
+                // Load upload library $_FILES['file']['name']
+                $this->load->library('upload',$config);
+
+                // File upload
+                if($this->upload->do_upload('file')){
+                    // Get data about the file
+                    $uploadData = $this->upload->data();
+                    $filename = $uploadData['file_name'];
+                    $data['response'] = 'successfully uploaded '.$filename;
+                }else{
+                    $data['response'] = 'failed';
+                }
+            }else{
+                //add flash data
+                $this->session->set_flashdata('item','item-value');
+            }
+            // load view
+            //$this->load->view('user_view',$data);
+
+    }
+
+
+
+
+
+
 
 
 

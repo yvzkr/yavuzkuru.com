@@ -4,12 +4,13 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-        <form role="form" action="<?=current_url()?>" method="post">
+        <form role="form" action="<?=current_url()?>" method="post" enctype='multipart/form-data'>
             <!-- text input -->
             <div class="form-group">
                 <label>Başlık</label>
                 <input type="text" name="title" class="form-control" placeholder="Başlık" >
             </div>
+
             <div class="form-group">
                 <label>Açıklama</label>
                 <input type="text" name="description" class="form-control" placeholder="Bir Açıklama giriniz">
@@ -17,8 +18,7 @@
 
             <div class="form-group">
                 <label for="exampleInputFile">File input</label>
-                <input type="file" name="userfile" size="20" id="exampleInputFile"/>
-
+                <input type="file" name='file' size="20" id="exampleInputFile"/>
                 <p class="help-block">Lütfen Kategori İçin Bir Fotoğraf Yükleyiniz.</p>
             </div>
 
