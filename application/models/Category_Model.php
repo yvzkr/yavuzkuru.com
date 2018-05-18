@@ -19,7 +19,7 @@ class Category_Model extends CI_Model
         return $query->result();
     }
 
-    public function insert()
+    public function insert($image_info)
     {
         $data = array(
             'title'         => $this->input->post('title'),

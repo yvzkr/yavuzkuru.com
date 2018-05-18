@@ -19,7 +19,6 @@ class Categories_Controller extends CI_Controller
             "posts"     => $this->Category_Model->all()
         );
 
-
         $this->load->view('admin/layout/top');
         $this->load->view('admin/category/index',$data);
         $this->load->view('admin/layout/bottom');
@@ -33,49 +32,56 @@ class Categories_Controller extends CI_Controller
     }
 
     public function create(){
-        echo NOW()."<br>";
-        echo $this->input->post("title");
-        $this->upload_image();
 
-        echo NOW();
-       /* if($this->Category_Model->insert())
+
+
+
+
+
+
+
+/*
+        //$error is a array
+        $info=$this->upload_image();
+        print_r($info);
+        
+        if(!isset($info["file_name"]))
         {
-            redirect('admin/kategoriler');
+            echo "Olmadi";
         }else{
-            redirect('admin/kategoriekle');
+            if($this->Category_Model->insert($info))
+            {
+                redirect('admin/kategoriler');
+            }else{
+                redirect('admin/kategoriekle');
+            }
         }*/
+        
     }
 
     public function upload_image(){
-        // Check form submit or not
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 2048;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+        $config['file_name']            = NOW();
 
-            $data = array();
-            if(!empty($_FILES['file']['name'])){
-                // Set preference
-                $config['upload_path'] = 'uploads/';
-                $config['allowed_types'] = 'jpg|jpeg|png|gif';
-                $config['max_size'] = '100'; // max_size in kb
-                $config['file_name'] =NOW();
-                // Load upload library $_FILES['file']['name']
-                $this->load->library('upload',$config);
+        $this->load->library('upload', $config);
 
-                // File upload
-                if($this->upload->do_upload('file')){
-                    // Get data about the file
-                    $uploadData = $this->upload->data();
-                    $filename = $uploadData['file_name'];
-                    $data['response'] = 'successfully uploaded '.$filename;
-                }else{
-                    $data['response'] = 'failed';
-                }
-            }else{
-                //add flash data
-                $this->session->set_flashdata('item','item-value');
-            }
-            // load view
-            //$this->load->view('user_view',$data);
-
+        if ( ! $this->upload->do_upload('file'))
+        {
+                
+                return $this->upload->display_errors();
+        }
+        else
+        {
+                return $this->upload->data();
+                //$this->load->view('upload_success', $data);
+        }
     }
+
+            
 
 
 
