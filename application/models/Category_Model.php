@@ -19,13 +19,14 @@ class Category_Model extends CI_Model
         return $query->result();
     }
 
-    public function insert($image_info)
+    public function insert($image_info,$picture_id)
     {
         $data = array(
             'title'         => $this->input->post('title'),
             'description'   => $this->input->post('description'),
-            'image'         => $this->input->post('userfile')
+            'images_id'     => $picture_id
         );
+
         $this->db->insert('categories', $data);
         return true;
     }

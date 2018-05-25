@@ -6,11 +6,12 @@ class Categories_Controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Category_Model');
+        $this->load->model(array('Category_Model','Picture_Model'));
         // initiate faker
         $this->faker = Faker\Factory::create();
         $this->load->library('session');
         $this->load->helper(array('form', 'url','date'));
+        $this->load->database();
     }
 
     public function index()
@@ -33,30 +34,21 @@ class Categories_Controller extends CI_Controller
 
     public function create(){
 
+        $pic_info=$this->upload_image();
 
-
-
-
-
-
-
-/*
-        //$error is a array
-        $info=$this->upload_image();
-        print_r($info);
-        
-        if(!isset($info["file_name"]))
+        $picture_id=$this->Picture_Model->get_insert($pic_info);
+        //if(!isset($info["file_name"]))
+        if(!$picture_id)
         {
             echo "Olmadi";
         }else{
-            if($this->Category_Model->insert($info))
+            if($this->Category_Model->insert($pic_info,$picture_id))
             {
                 redirect('admin/kategoriler');
             }else{
                 redirect('admin/kategoriekle');
             }
-        }*/
-        
+        }
     }
 
     public function upload_image(){
@@ -71,7 +63,6 @@ class Categories_Controller extends CI_Controller
 
         if ( ! $this->upload->do_upload('file'))
         {
-                
                 return $this->upload->display_errors();
         }
         else

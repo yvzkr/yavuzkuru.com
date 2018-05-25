@@ -29,10 +29,6 @@ class Post_Model extends CI_Model
         return $query->result();
     }
 
-
-
-
-
     function insert($options = array()) {
         $this->db->insert('articles', $options);
     }

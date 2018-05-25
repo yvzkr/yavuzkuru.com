@@ -16,7 +16,17 @@ class Picture_Model extends CI_Model
     public function get_insert($picture_info){
         //if picture is null
         if (!isset($picture_info["file_name"]))
-            return NULL;
+            return false;
+        else
+        {
+            $data = array(
+                'title'         => $picture_info["client_name"],
+                'path'          => $picture_info["file_name"]
+            );
+
+            $this->db->insert('pictures', $data);
+            return $this->db->insert_id();
+        }
 
     }
 

@@ -29,7 +29,7 @@
                         <td><?=$row->id?></td>
                         <td><?=$row->title?></td>
                         <td><?=$row->description?></td>
-                        <td><?=$row->image?></td>
+                        <td><?=$row->images_id?></td>
                     </tr>
 
                     <?php } ?>
