@@ -54,6 +54,7 @@ class Categories_Controller extends CI_Controller
     }
 
     public function delete($id){
+
         if($this->Category_Model->delete($id)){
             return "Silindi";
         }else{
@@ -81,7 +82,7 @@ class Categories_Controller extends CI_Controller
                 //$this->load->view('upload_success', $data);
         }
     }
-
+  
 
 
 
