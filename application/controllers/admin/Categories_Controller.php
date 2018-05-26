@@ -35,8 +35,10 @@ class Categories_Controller extends CI_Controller
     public function create(){
 
         $pic_info=$this->upload_image();
-
+        print_r($pic_info);
         $picture_id=$this->Picture_Model->get_insert($pic_info);
+        echo $picture_id;
+        
         //if(!isset($info["file_name"]))
         if(!$picture_id)
         {
@@ -48,6 +50,14 @@ class Categories_Controller extends CI_Controller
             }else{
                 redirect('admin/kategoriekle');
             }
+        }
+    }
+
+    public function delete($id){
+        if($this->Category_Model->delete($id)){
+            return "Silindi";
+        }else{
+            return "Hata Oluştu";
         }
     }
 
@@ -72,34 +82,27 @@ class Categories_Controller extends CI_Controller
         }
     }
 
-            
-
-
-
-
-
 
 
 
 
     //faker start
-    function seed()
-    {
+    function seed(){
 
         // seed users
-        $this->_seed_users(25);
+        $this->_seed_users(10);
 
     }
 
-    function _seed_users($limit)
-    {
+    function _seed_users($limit){
         // create a bunch of base buyer accounts
         for ($i = 0; $i < $limit; $i++) {
 
 
             $data = array(
                 'title' => $this->faker->word,
-                'description' => $this->faker->text($maxNbChars = 20)
+                'description' => $this->faker->text($maxNbChars = 20),
+                'images_id'   => 1
 
             );
             $this->Category_Model->get_insert($data);
