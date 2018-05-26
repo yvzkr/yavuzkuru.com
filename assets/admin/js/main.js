@@ -10,3 +10,6 @@ $(function () {
     })
 })
 
+$("#silme").click(function () {
+    alert("Silmek istediğinize emin misiniz?");
+});
