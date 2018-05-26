@@ -49,20 +49,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller']          = 'welcome';
-$route['404_override']                = '';
-$route['translate_uri_dashes']        = FALSE;
+$route['default_controller']                = 'welcome';
+$route['404_override']                      = '';
+$route['translate_uri_dashes']              = FALSE;
 
-$route['admin']                       = 'admin/home_Controller';
+$route['admin']                             = 'admin/home_Controller';
 
-$route['admin/makaleler']             = 'admin/posts_Controller/index';
-$route['admin/makalelerekle']['GET']  = 'admin/posts_Controller/add';
-$route['admin/makalelerekle']['POST'] = 'admin/posts_Controller/create';
+$route['admin/makaleler']                   = 'admin/posts_Controller/index';
+$route['admin/makalelerekle']['GET']        = 'admin/posts_Controller/add';
+$route['admin/makalelerekle']['POST']       = 'admin/posts_Controller/create';
 
-$route['admin/kategoriler']           = 'admin/categories_Controller/index';
-$route['admin/kategoriekle']['GET']   = 'admin/categories_Controller/add';
-$route['admin/kategoriekle']['POST']  = 'admin/categories_Controller/create';
+$route['admin/kategoriler']                 = 'admin/categories_Controller/index';
+$route['admin/kategoriekle']['GET']         = 'admin/categories_Controller/add';
+$route['admin/kategoriekle']['POST']        = 'admin/categories_Controller/create';
+$route['admin/kategorisil/(:any)']['GET']   = 'admin/categories_Controller/delete/$1';
 
 /* faker linki*/
-$route['admin/makaleler/seed']        = 'admin/posts_Controller/seed';
-$route['admin/kategoriler/seed']      = 'admin/categories_Controller/seed';
+$route['admin/makaleler/seed']              = 'admin/posts_Controller/seed';
+$route['admin/kategoriler/seed']            = 'admin/categories_Controller/seed';

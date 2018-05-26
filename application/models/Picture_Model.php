@@ -13,6 +13,7 @@ class Picture_Model extends CI_Model
         $this->load->database();
 
     }
+    
     public function get_insert($picture_info){
         //if picture is null
         if (!isset($picture_info["file_name"]))

@@ -31,9 +31,20 @@ class Category_Model extends CI_Model
         return true;
     }
 
+    public function delete($id){
+        $this->db->delete('categories', array('id' => $id));
+        if($this->db->affected_rows()){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
+
     function get_insert($options = array()) {
         $this->db->insert('categories', $options);
     }
+
+    
 
 
 }
