@@ -23,6 +23,7 @@
                         <th>Kategori adı</th>
                         <th>Açıklama</th>
                         <th>Resim</th>
+                        <th></th>
                     </tr>
                     <?php foreach ($posts as $row){ ?>
                     <tr>
@@ -30,6 +31,11 @@
                         <td><?=$row->title?></td>
                         <td><?=$row->description?></td>
                         <td><?=$row->images_id?></td>
+                        <td>
+                            <a href="<?=base_url('admin/kategoridüzenle')?>" title="Edit"><i  class="fa fa-edit"></i></a>
+                            <a href="<?=base_url('admin/kategorisil')?>" title="Delete"><i id="silme" class="fa fa-trash-o"></i></a>
+                            <a href="<?=base_url('admin/kategorigöster')?>" title="View"><i class="fa fa-eye"></i></a>
+                        </td>
                     </tr>
 
                     <?php } ?>
