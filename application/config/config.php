@@ -23,7 +23,7 @@ include_once 'vendor/autoload.php';
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/yavuzkuru.com/'; 
+$config['base_url'] = 'http://localhost:8080/yavuzkuru.com/';
 
 /*
 |--------------------------------------------------------------------------

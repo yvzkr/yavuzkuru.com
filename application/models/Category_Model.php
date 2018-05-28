@@ -21,6 +21,13 @@ class Category_Model extends CI_Model
 
     public function insert($image_info,$picture_id)
     {
+        $this->form_validation->set_rules('title', 'Başlık Adı', 'required');
+        $this->form_validation->set_rules('description', 'Açıklama', 'required');
+        if(! $this->form_validation->run() == FALSE )
+        {
+            return false;
+        }
+
         $data = array(
             'title'         => $this->input->post('title'),
             'description'   => $this->input->post('description'),
@@ -29,6 +36,34 @@ class Category_Model extends CI_Model
 
         $this->db->insert('categories', $data);
         return true;
+    }
+
+    public function update($id)
+    {
+        $this->form_validation->set_rules('title', 'Başlık Adı', 'required');
+        $this->form_validation->set_rules('description', 'Açıklama', 'required');
+        if( $this->form_validation->run() == FALSE )
+        {
+            return false;
+        }
+        $data = array(
+            'title'         => $this->input->post('title'),
+            'description'   => $this->input->post('description')
+        );
+        $where                        = array(
+            'id'                        => $id
+        );
+
+        $this->db->update('categories', $data, $where );
+        return true;
+    }
+
+
+
+    public function get_by_id($id){
+        $query = $this->db->get_where('categories',array('id'=>$id));
+        return $query->result()[0];
+
     }
 
     public function delete($id){
@@ -43,6 +78,8 @@ class Category_Model extends CI_Model
     function get_insert($options = array()) {
         $this->db->insert('categories', $options);
     }
+
+
 
     
 

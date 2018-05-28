@@ -31,6 +31,7 @@ class Posts_Controller extends CI_Controller {
 
 
 
+
     }
 
     function seed()

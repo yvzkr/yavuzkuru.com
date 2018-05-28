@@ -63,6 +63,8 @@ $route['admin/kategoriler']                 = 'admin/categories_Controller/index
 $route['admin/kategoriekle']['GET']         = 'admin/categories_Controller/add';
 $route['admin/kategoriekle']['POST']        = 'admin/categories_Controller/create';
 $route['admin/kategorisil/(:any)']['GET']   = 'admin/categories_Controller/delete/$1';
+$route['admin/kategoriedit/(:any)']['GET']  = 'admin/categories_Controller/edit/$1';
+$route['admin/kategoriedit/(:any)']['POST'] = 'admin/categories_Controller/upload/$1';
 
 /* faker linki*/
 $route['admin/makaleler/seed']              = 'admin/posts_Controller/seed';
