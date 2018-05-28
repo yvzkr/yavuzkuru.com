@@ -9,7 +9,7 @@ class Categories_Controller extends CI_Controller
         $this->load->model(array('Category_Model','Picture_Model'));
         // initiate faker
         $this->faker = Faker\Factory::create();
-        $this->load->library('session');
+        $this->load->library(array('form_validation','session'));
         $this->load->helper(array('form', 'url','date'));
         $this->load->database();
     }
@@ -37,7 +37,7 @@ class Categories_Controller extends CI_Controller
         $pic_info=$this->upload_image();
         print_r($pic_info);
         $picture_id=$this->Picture_Model->get_insert($pic_info);
-        echo $picture_id;
+        //echo $picture_id;
         
         //if(!isset($info["file_name"]))
         if(!$picture_id)
@@ -52,6 +52,31 @@ class Categories_Controller extends CI_Controller
             }
         }
     }
+
+    public function edit($id){
+        $data = array(
+            "category"   => $this->Category_Model->get_by_id($id)
+        );
+        print_r($data);
+        if(empty($data["category"]))
+            redirect('admin/kategoriler');
+
+        $this->load->view('admin/layout/top');
+        $this->load->view('admin/category/edit',$data);
+        $this->load->view('admin/layout/bottom');
+
+    }
+
+    public function upload($id){
+        if( $this->Category_Model->update($id)){
+            redirect('admin/kategoriler');
+        }else{
+            redirect('admin/kategoriedit/'.$id);
+        }
+    }
+
+
+
 
     public function delete($id){
 
@@ -101,9 +126,9 @@ class Categories_Controller extends CI_Controller
 
 
             $data = array(
-                'title' => $this->faker->word,
+                'title' => $this->faker->text($maxNbChars = 10),
                 'description' => $this->faker->text($maxNbChars = 20),
-                'images_id'   => 1
+                'images_id'   => 3
 
             );
             $this->Category_Model->get_insert($data);
